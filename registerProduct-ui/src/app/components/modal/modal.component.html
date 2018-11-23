@@ -1,0 +1,16 @@
+   
+<div>
+    <div class="modal-header">
+        <h4 class="modal-title">Delete product</h4>
+        <button type="button" class="close" aria-label="closeModal" (click)="close('close')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you will delete the <strong>{{ product?.name }}</strong> ?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="deleteProduct()">Delete</button>
+        <button type="button" class="btn btn-outline-dark" (click)="close('close')">Cancel</button>
+    </div>
+</div>
