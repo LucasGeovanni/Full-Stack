@@ -1,4 +1,2 @@
-<div class="container">
   <app-form [update]="product" (formLastSaved)="formChange($event)"></app-form>
   <app-table [reload]="update" (deleteProduct)="deleteProduct($event)" (updateProduct)="updateProduct($event)"></app-table>
-</div>

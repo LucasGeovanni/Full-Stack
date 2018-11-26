@@ -12,6 +12,10 @@ import { TableComponent } from './components/table/table.component';
 import { RequestService } from './services/request.service';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './components/modal/model.component';
+import { AboutComponent } from './components/about/about.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './app.route';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,9 @@ import { ModalComponent } from './components/modal/model.component';
     ControlComponent,
     FormComponent,
     TableComponent,
-    ModalComponent
+    ModalComponent,
+    AboutComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,8 @@ import { ModalComponent } from './components/modal/model.component';
     FormsModule,
     NgxCurrencyModule,
     ReactiveFormsModule,
-    NgbModalModule
+    NgbModalModule,
+    RouterModule.forRoot(appRoutes)
   ],
   entryComponents:[
     ModalComponent

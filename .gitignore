@@ -1,0 +1,11 @@
+/registerProduct-ui/node_modules
+
+/registerProduct-ui/dist
+/registerProduct-ui/tmp
+/registerProduct-ui/app/**/*.js
+/registerProduct-ui/app/**/*.js.map
+/registerProduct-ui/bower_components
+/registerProduct-ui/.sass-cache
+//registerProduct-ui/connect.lock
+/registerProduct-ui/e2e/*.js
+/registerProduct-ui/e2e/*.map

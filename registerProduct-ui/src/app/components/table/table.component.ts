@@ -29,6 +29,7 @@ export class TableComponent implements OnInit {
       this.products = res;
     }, err => {
       console.log(err); 
+      this.reloadAttemp();
     });
   }
   
@@ -44,6 +45,12 @@ export class TableComponent implements OnInit {
   set reload(saved: Saved){   
     this.findAllProducts();   
     this.lastSaved = saved.lastSaved;
+  }
+  
+  reloadAttemp(){
+    setTimeout(() => {
+      this.findAllProducts(); 
+    }, 60000);
   }
   
 }

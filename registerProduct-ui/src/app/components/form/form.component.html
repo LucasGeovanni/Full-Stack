@@ -5,13 +5,13 @@
         <div class="col-2">
           <div class="form-group">
             <label>Cod:</label>
-            <input type="text" formControlName="id" name="id" class="form-control" readonly>
+            <input type="text" formControlName="id" name="id" class="form-control" readonly/>
           </div>
         </div>
         <div class="col-10">
           <div class="form-group">
             <label>Name:</label>
-            <input type="text" formControlName="name" name="name" class="form-control" [required]>
+            <input type="text" formControlName="name" name="name" class="form-control"/>
           </div>
         </div>          
       </div>
@@ -19,25 +19,30 @@
         <div class="col-6">
           <div class="form-group">
             <label>Price:</label>
-            <input type="text" placeholder="R$ 0,00" formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"  name="price" class="form-control" [required]>
+            <input type="text" placeholder="R$ 0,00" formControlName="price" currencyMask [options]="{ prefix: '$ ', thousands: '.', decimal: ',' }"  name="price" class="form-control"/>
           </div>
         </div>
         <div class="col-6">
           <div class="form-group">
             <label>Categoy:</label>
             <select type="text" name="categoryId" formControlName="categoryId" class="form-control">    
-              <option value="">Select</option>            
+              <option value="-1">Select</option>            
               <option *ngFor="let categories of categories" [value]="categories?.id">{{categories?.name}}</option>
             </select>
           </div> 
         </div>    
       </div>   
       <div class="row">
-        <div class="col-12">
+        <div class="col-8">
           <div class="form-group">
-            <input type="submit" class="btn btn-primary" (click)="saveOrUpdate()" value="save">
+            <input type="button" class="btn btn-primary" (click)="saveOrUpdate()" value="save" [disabled]="!form.valid || categories == null"> 
           </div>
-        </div>            
+        </div>     
+        <div class="col-4">
+          <div *ngIf="categories == null" class="text-danger font-weight-bold">
+            Disconected
+          </div>
+        </div>       
       </div>
     </form>
   </div>

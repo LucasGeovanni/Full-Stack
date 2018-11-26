@@ -3,7 +3,7 @@ import { Product } from 'src/app/models/Product';
 import { Category } from 'src/app/models/Category';
 import { RequestService } from 'src/app/services/request.service';
 import { RequestTypeEnum } from 'src/app/enums/RequestTypeEnum';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProductDTO } from 'src/app/models/ProductDTO';
 
 @Component({
@@ -32,6 +32,8 @@ export class FormComponent implements OnInit {
       this.categories = res;
     }, err =>{
       console.log(err);
+      this.categories = null;
+      this.reloadAttemp();
     });
   }
   
@@ -67,10 +69,25 @@ export class FormComponent implements OnInit {
   initForm(){
     return this.form = this.formBuilder.group({
       id: [''],
-      name: [''],
-      categoryId: [''],
-      price: [''],
+      name: ['', Validators.required],
+      categoryId: ['-1', this.validate],
+      price: ['' ,Validators.required],
     });
   }  
+  validate(control){
+    if(control.value != -1){
+      return null;
+    }
+    return { 'required': true };
+  }
   
+  get f() {   
+    return this.form.controls; 
+  }  
+
+  reloadAttemp(){
+    setTimeout(() => {
+      this.findCategories();     
+    }, 60000);
+  }
 }
